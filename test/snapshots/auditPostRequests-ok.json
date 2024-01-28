@@ -1,0 +1,78 @@
+{
+  "description": "POST requests SHOULD be supported.",
+  "status": "ok",
+  "children": [
+    {
+      "description": "Query request with an acceptable Accept header.",
+      "status": "ok",
+      "children": [
+        {
+          "description": "Response HTTP status MUST be 200.",
+          "status": "ok"
+        },
+        {
+          "description": "Response Content-Type header MUST match the request Accept header (application/graphql+json).",
+          "status": "ok"
+        },
+        {
+          "description": "Response body MUST contain appropriate data (JSON).",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "description": "Query request with an absent Accept header.",
+      "status": "ok",
+      "children": [
+        {
+          "description": "Response HTTP status MUST be 200.",
+          "status": "ok"
+        },
+        {
+          "description": "Response Content-Type header MUST be application/graphql+json.",
+          "status": "ok"
+        },
+        {
+          "description": "Response body MUST contain appropriate data (JSON).",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "description": "Query request with an unacceptable Accept header.",
+      "status": "ok",
+      "children": [
+        {
+          "description": "Response HTTP status MUST be 406.",
+          "status": "ok"
+        },
+        {
+          "description": "Response Content-Type header MUST be application/graphql+json.",
+          "status": "ok"
+        },
+        {
+          "description": "Response body MUST contain appropriate data (JSON).",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "description": "Query with a syntax error.",
+      "status": "ok",
+      "children": [
+        {
+          "description": "Response HTTP status MUST be 400.",
+          "status": "ok"
+        },
+        {
+          "description": "Response Content-Type header MUST match the request Accept header (application/graphql+json).",
+          "status": "ok"
+        },
+        {
+          "description": "Response body MUST contain appropriate data (JSON).",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}
